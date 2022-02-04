@@ -4,9 +4,20 @@ async function getData() {
     const randomImgArr = [img1, img1, img2, img3, img4].filter(Boolean)
     const randomImgIdx = ~~(Math.random() * randomImgArr.length)
     const randomImg = randomImgArr[randomImgIdx]
-    const wallpaperImg = randomImg.replace('original', 'w780')
+    const wallpaperImg = config.widgetFamily === 'large' ? randomImg.replace('original', 'w1280'): randomImg.replace('original', 'w780')
     const img = await (new Request(wallpaperImg)).loadImage()
-    return { name, link, quotes, img }
+    const greyImg = await getGreyImg(img)
+    return { name, link, quotes, img: greyImg }
+}
+
+async function getGreyImg(img) {
+    let ctx = new DrawContext()
+    ctx.size = img.size
+    ctx.drawImageInRect(img, new Rect(0, 0, img.size['width'], img.size['height']))
+    ctx.setFillColor(new Color("#000000", 0.7))
+    ctx.fillRect(new Rect(0, 0, img.size['width'], img.size['height']))
+    let res = await ctx.getImage()
+    return res
 }
   
 const widget = new ListWidget()
