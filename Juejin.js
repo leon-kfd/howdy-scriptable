@@ -18,7 +18,7 @@ async function httpGet (url) {
 
 async function createWidget() {
   // 获取掘金最新文章列表
-  const { list } = await httpGet('https://kongfandong.cn/api/juejinList')
+  const { list } = await httpGet('https://howdz.deno.dev/hotList/juejin')
 
   const articleList = list.map(item => {
     const { title, link_url, article_id, digg_count } = item
@@ -27,7 +27,7 @@ async function createWidget() {
 
   let widget = new ListWidget()
   widget.setPadding(10, 10, 10, 10)
-  widget.backgroundImage = await loadImg(`https://kongfandong.cn/api/randomPhoto?w=800&h=600`)
+  widget.backgroundImage = await loadImg(`https://howdz.deno.dev/unsplash/random?w=800&h=600`)
 
   // 头部容器显示Logo
   const header = widget.addStack()

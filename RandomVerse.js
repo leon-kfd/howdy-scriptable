@@ -1,6 +1,6 @@
 
 async function loadBackground () {
-  const randomImgURL = 'https://kongfandong.cn/api/randomPhoto?w=400&h=200&keyword=Nature'
+  const randomImgURL = 'https://hodwz.deno.dev/unsplash/random?w=400&h=200&keyword=Nature'
   const randomImg = await loadImageByURL(randomImgURL)
   return randomImg
 }

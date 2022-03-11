@@ -10,12 +10,11 @@ async function loadJsonByURL (url) {
 
 const widget = new ListWidget()
 
-const imgURL = `https://kongfandong.cn/api/randomPhoto?w=800&h=600`
+const imgURL = `https://hodwz.deno.dev/unsplash/random?w=800&h=600`
 const backgroundImg = await loadImageByURL(imgURL)
 widget.backgroundImage = backgroundImg
 
-// const sentenceURL = `https://kongfandong.cn/api/dailyEnglishSentence`
-const sentenceURL = `https://kongfandong.cn/api/randomEnglishSentence`
+const sentenceURL = `https://favqs.com/api/qotd`
 const { body: text, author } = await loadJsonByURL(sentenceURL) 
 
 const textEl = widget.addText(text)

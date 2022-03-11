@@ -1,5 +1,5 @@
 async function getData() {
-    const target = 'https://kongfandong.cn/api/movieLines'
+    const target = 'https://howdz.deno.dev/movieLines'
     const { img1, img2, img3, img4, link, name, quotes } = await (new Request(target)).loadJSON()
     const randomImgArr = [img1, img1, img2, img3, img4].filter(Boolean)
     const randomImgIdx = ~~(Math.random() * randomImgArr.length)
