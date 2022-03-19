@@ -36,7 +36,7 @@ async function createWidget() {
   })
 
   const widget = new ListWidget()
-  widget.setPadding(10, 10, 10, 10)
+  widget.setPadding(20, 10, 20, 10)
   const bg = await loadImg(`https://howdz.deno.dev/unsplash/random?w=800&h=600`)
   const greyBg = await getGreyImg(bg)
   widget.backgroundImage = greyBg
@@ -60,7 +60,7 @@ async function createWidget() {
   // 列表容器
   const content = widget.addStack()
   content.layoutVertically()
-  const listNum = (!config.runsInWidget || config.widgetFamily === 'large') ? 8: 3
+  const listNum = (!config.runsInWidget || config.widgetFamily === 'large') ? 9: 3
   articleList.slice(0,listNum).map(item => {
     const listItem = content.addStack()
     listItem.size = new Size(0, 28)

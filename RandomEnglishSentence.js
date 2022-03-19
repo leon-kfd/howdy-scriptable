@@ -1,50 +1,61 @@
-async function getGreyImg(img) {
-  let ctx = new DrawContext()
+const fontSizeMap = {
+  small: 18,
+  medium: 24,
+  large: 32
+}
+const fontSize = fontSizeMap[config.widgetFamily || 'medium']
+
+const loadImage = async (url) => (await new Request(url)).loadImage()
+
+const getGreyImg = async (img, light = 0.4) => {
+  const ctx = new DrawContext()
   ctx.size = img.size
   ctx.drawImageInRect(img, new Rect(0, 0, img.size['width'], img.size['height']))
-  ctx.setFillColor(new Color("#000000", 0.7))
+  ctx.setFillColor(new Color("#000000", light))
   ctx.fillRect(new Rect(0, 0, img.size['width'], img.size['height']))
-  let res = await ctx.getImage()
-  return res
+  return await ctx.getImage()
 }
 
-async function loadBackground () {
-  const randomImgURL = 'https://hodwz.deno.dev/unsplash/random?w=400&h=200&keyword=Nature'
-  const randomImg = await loadImageByURL(randomImgURL)
+const loadRandomBg = async () => {
+  const randomImgURL = 'https://howdz.deno.dev/unsplash/random?w=768&keyword=Nature'
+  const randomImg = await loadImage(randomImgURL)
   const greyImg = await getGreyImg(randomImg)
   return greyImg
 }
 
-async function loadJsonByURL (url) {
-  const req = new Request(url)
-  return await req.loadJSON()
-}
+const loadSentence = async () => (await new Request('https://favqs.com/api/qotd')).loadJSON()
 
+const { quote } = await loadSentence()
+const { body: text, author } = quote
 const widget = new ListWidget()
+const randomImg = await loadRandomBg()
+widget.setPadding(0, fontSize / 2, 0, fontSize / 2)
+widget.backgroundImage = randomImg
 
-const backgroundImg = await loadBackground(imgURL)
-widget.backgroundImage = backgroundImg
-
-const sentenceURL = `https://favqs.com/api/qotd`
-const { body: text, author } = await loadJsonByURL(sentenceURL) 
-
-const textEl = widget.addText(text)
+const textEl = widget.addText(text.replaceAll('\\r', '').replaceAll('<br>', ''))
 textEl.textColor = Color.white()
-textEl.font = Font.boldSystemFont(18)
+textEl.font = Font.boldSystemFont(fontSize)
 textEl.shadowRadius = 2
 textEl.shadowOffset = new Point(1, 1)
+textEl.centerAlignText()
 
-const authorEl = widget.addText(`${author}`)
-authorEl.textColor = Color.white()
-authorEl.font = Font.boldSystemFont(18)
-authorEl.shadowRadius = 2
-authorEl.shadowOffset = new Point(1, 1)
-authorEl.rightAlignText()
+if (config.widgetFamily !== 'small') {
+  const footer = widget.addStack()
+  footer.setPadding(fontSize, 0, 0, 0)
+  footer.addSpacer()
+  const footerText = footer.addText(`—— ${author}`)
+  footer.font = Font.boldSystemFont(16)
+  footerText.lineLimit = 1
+  footerText.shadowRadius = 2
+  footerText.shadowOffset = new Point(1, 1)
+  footerText.textColor = Color.white()
+  footerText.rightAlignText()
+}
 
 
 if (config.runsInWidget) {
   Script.setWidget(widget)
 } else {
-  widget.presentLarge()
+  widget.presentMedium()
 }
 Script.complete()
