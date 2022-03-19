@@ -1,6 +1,18 @@
-async function loadImageByURL (url) {
-  const req = new Request(url)
-  return await req.loadImage()
+async function getGreyImg(img) {
+  let ctx = new DrawContext()
+  ctx.size = img.size
+  ctx.drawImageInRect(img, new Rect(0, 0, img.size['width'], img.size['height']))
+  ctx.setFillColor(new Color("#000000", 0.7))
+  ctx.fillRect(new Rect(0, 0, img.size['width'], img.size['height']))
+  let res = await ctx.getImage()
+  return res
+}
+
+async function loadBackground () {
+  const randomImgURL = 'https://hodwz.deno.dev/unsplash/random?w=400&h=200&keyword=Nature'
+  const randomImg = await loadImageByURL(randomImgURL)
+  const greyImg = await getGreyImg(randomImg)
+  return greyImg
 }
 
 async function loadJsonByURL (url) {
@@ -10,8 +22,7 @@ async function loadJsonByURL (url) {
 
 const widget = new ListWidget()
 
-const imgURL = `https://hodwz.deno.dev/unsplash/random?w=800&h=600`
-const backgroundImg = await loadImageByURL(imgURL)
+const backgroundImg = await loadBackground(imgURL)
 widget.backgroundImage = backgroundImg
 
 const sentenceURL = `https://favqs.com/api/qotd`

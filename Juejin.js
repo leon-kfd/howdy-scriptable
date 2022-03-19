@@ -16,6 +16,16 @@ async function httpGet (url) {
   return await req.loadJSON()
 }
 
+async function getGreyImg(img) {
+  let ctx = new DrawContext()
+  ctx.size = img.size
+  ctx.drawImageInRect(img, new Rect(0, 0, img.size['width'], img.size['height']))
+  ctx.setFillColor(new Color("#000000", 0.7))
+  ctx.fillRect(new Rect(0, 0, img.size['width'], img.size['height']))
+  let res = await ctx.getImage()
+  return res
+}
+
 async function createWidget() {
   // 获取掘金最新文章列表
   const { list } = await httpGet('https://howdz.deno.dev/hotList/juejin')
@@ -25,9 +35,11 @@ async function createWidget() {
     return { title, link_url, article_id, digg_count }
   })
 
-  let widget = new ListWidget()
+  const widget = new ListWidget()
   widget.setPadding(10, 10, 10, 10)
-  widget.backgroundImage = await loadImg(`https://howdz.deno.dev/unsplash/random?w=800&h=600`)
+  const bg = await loadImg(`https://howdz.deno.dev/unsplash/random?w=800&h=600`)
+  const greyBg = await getGreyImg(bg)
+  widget.backgroundImage = greyBg
 
   // 头部容器显示Logo
   const header = widget.addStack()

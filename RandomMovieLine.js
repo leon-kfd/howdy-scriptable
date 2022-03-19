@@ -1,10 +1,12 @@
+const isLarge = config.widgetFamily === 'large'
+
 async function getData() {
     const target = 'https://howdz.deno.dev/movieLines'
     const { img1, img2, img3, img4, link, name, quotes } = await (new Request(target)).loadJSON()
     const randomImgArr = [img1, img1, img2, img3, img4].filter(Boolean)
     const randomImgIdx = ~~(Math.random() * randomImgArr.length)
     const randomImg = randomImgArr[randomImgIdx]
-    const wallpaperImg = config.widgetFamily === 'large' ? randomImg.replace('original', 'w1280'): randomImg.replace('original', 'w780')
+    const wallpaperImg = randomImg.replace('original', 'w1280')
     const img = await (new Request(wallpaperImg)).loadImage()
     const greyImg = await getGreyImg(img)
     return { name, link, quotes, img: greyImg }
@@ -28,15 +30,15 @@ widget.url = link
 const content = widget.addStack()
 content.setPadding(0, 0, 10, 0)
 const quotesText = content.addText(quotes)
-quotesText.lineLimit = 3
+quotesText.lineLimit = isLarge ? 5: 3
 quotesText.textColor = Color.white()
-quotesText.font = Font.boldSystemFont(18)
+quotesText.font = Font.boldSystemFont(isLarge ? 24: 18)
 quotesText.shadowRadius = 2
 quotesText.shadowOffset = new Point(1, 1)
 
 
 const footer = widget.addStack()
-footer.setPadding(10, 0, 0, 0)
+footer.setPadding(isLarge ? 32 : 16, 0, 0, 0)
 footer.addSpacer()
 const footerText = footer.addText(`——『 ${movieName} 』`)
 footerText.lineLimit = 1
