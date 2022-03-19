@@ -17,7 +17,7 @@ Some collection scripts of `Scriptable` on IOS, built by [Leon.D ❤](https://ko
 
 ## 🔨How to add?
 
-+ Install `Scriptable` from Apple Store
++ Install [Scriptable](https://apps.apple.com/us/app/scriptable/id1405459188?uo=4) from Apple Store
 + Download the scripts
 + Open script use Scriptable and click add to **my script button**
 
