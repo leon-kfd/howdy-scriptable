@@ -2,7 +2,11 @@ import { Application, Router } from "https://deno.land/x/oak/mod.ts"
 import { Marked } from "https://deno.land/x/markdown@v2.0.0/mod.ts";
 
 const app = new Application();
-const router = new Router()
+const router = new Router();
+
+const readme = await Deno.readTextFile("./README.md");
+const readmeHtml = Marked.parse(readme).content
+
 
 app.use(async (ctx, next) => {
   ctx.response.headers.set('Access-Control-Allow-Origin', '*')
@@ -24,9 +28,8 @@ app.use(async (ctx, next) => {
 })
 
 router.get('/', async ctx => {
-  const readme = await Deno.readTextFile("./README.md");
   const html = await Deno.readTextFile('./index.html')
-  const output = html.replace('[[readme]]', Marked.parse(readme).content)
+  const output = html.replace('[[readme]]', readmeHtml)
   ctx.response.body = output
   ctx.response.type = 'html'
 })
