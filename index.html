@@ -1,66 +1,75 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Howdy Scriptable</title>
-  <link rel="stylesheet" href="https://unpkg.com/water.css@2.1.1/out/light.min.css" />
-  <style>
-    #howdy-scriptable {
-      text-shadow: 3px 3px #5b9df3;
-      color: transparent;
-      -webkit-text-stroke-color: #262626;
-      -webkit-text-stroke-width: 2px;
-    }
-    blockquote {
-      margin: 0.6em 0;
-      padding: 0.1em 1em;
-      background: #f5f5f5;
-    }
-    .fr {
-      float: right;
-    }
-    .clear {
-      zoom: 1;
-    }
-    .clear:after {
-      content: '';
-      clear: both;
-      display: table;
-    }
-  </style>
-</head>
-<body>
-  <main>[[readme]]</main>
-  <footer>
-    <p class="clear">
-      Copyright &copy; <a href="https://kongfandong.cn" target="_blank">Leon.D ❤</a>
-      <a href="https://github.com/leon-kfd/howdy-scriptable" target="_blank" class="fr">📖Github</a>
-    </p>
-  </footer>
-  <script src="https://unpkg.com/@howdyjs/img-zoom/dist/index.umd.js"></script>
-  <script>
-    const jsFileDom = [...document.querySelectorAll('a')].map(item => {
-      if (item.href.includes('.js')) {
-        const arr = item.href.split('/')
-        const fileName = arr[arr.length - 1]
-        item.download = fileName
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Howdy Scriptable</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/water.css@2.1.1/out/light.min.css"
+    />
+    <style>
+      #howdy-scriptable {
+        text-shadow: 3px 3px #5b9df3;
+        color: transparent;
+        -webkit-text-stroke-color: #262626;
+        -webkit-text-stroke-width: 2px;
       }
-    })
-
-    const ImgZoom = HowdyImgZoom.default
-    const imgs = [...document.querySelectorAll('img')].map(el => {
-      new ImgZoom({
-        el,
-        options: {
-          // title: el.alt,
-          group: 'preview',
-          zoomCursor: true,
-          showCloseBtn: true,
+      blockquote {
+        margin: 0.6em 0;
+        padding: 0.1em 1em;
+        background: #f5f5f5;
+      }
+      .fr {
+        float: right;
+      }
+      .clear {
+        zoom: 1;
+      }
+      .clear:after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+    </style>
+  </head>
+  <body>
+    <main>[[readme]]</main>
+    <footer>
+      <p class="clear">
+        Copyright &copy;
+        <a href="https://kongfandong.cn" target="_blank">Leon.D ❤</a>
+        <a
+          href="https://github.com/leon-kfd/howdy-scriptable"
+          target="_blank"
+          class="fr"
+          >📖Github</a
+        >
+      </p>
+    </footer>
+    <script src="https://unpkg.com/@howdyjs/img-zoom/dist/index.umd.js"></script>
+    <script>
+      const jsFileDom = [...document.querySelectorAll("a")].map((item) => {
+        if (item.href.includes(".js")) {
+          const arr = item.href.split("/");
+          const fileName = arr[arr.length - 1];
+          item.download = fileName;
         }
-      })
-    })
-  </script>
-</body>
+      });
+
+      const ImgZoom = HowdyImgZoom.default;
+      const imgs = [...document.querySelectorAll("img")].map((el) => {
+        new ImgZoom({
+          el,
+          options: {
+            // title: el.alt,
+            group: "preview",
+            zoomCursor: true,
+            showCloseBtn: true,
+          },
+        });
+      });
+    </script>
+  </body>
 </html>

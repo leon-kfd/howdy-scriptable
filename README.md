@@ -6,21 +6,27 @@ Some collection scripts of `Scriptable` on IOS, built by [Leon.D ❤](https://ko
 
 ## 🏳️‍🌈List
 
-+ [RandomMovieLine](./RandomMovieLine.js) - 随机电影台词
+- [RandomMovieLine](./RandomMovieLine.js) - 随机电影台词
   <div><img src="https://s2.loli.net/2022/03/19/DfjMWeca4Ao8gtZ.png" width="280px" loading="lazy" alt="RandomMovieLine"></div>
-+ [RandomVerse](./RandomVerse.js) - 随机古诗
+- [RandomVerse](./RandomVerse.js) - 随机古诗
   <div><img src="https://s2.loli.net/2022/03/19/b1xyifXjePAKkBc.png" width="280px" loading="lazy" alt="RandomVerse"></div>
-+ [RandomEnglishSentence](./RandomEnglishSentence.js) - 随机英文名句
+- [RandomEnglishSentence](./RandomEnglishSentence.js) - 随机英文名句
   <div><img src="https://s2.loli.net/2022/03/19/YGuorqzy7PnsEUc.png" width="280px" loading="lazy" alt="RandomEnglishSentence"></adiv>
-+ [Juejin](./Juejin.js) - 掘金热榜
+- [Juejin](./Juejin.js) - 掘金热榜
   <div><img src="https://s2.loli.net/2022/03/19/t8JXITiSWKOjr1M.png" width="280px" loading="lazy" alt="Juejin"></div>
 
 ## 🔨How to add?
 
-+ Install [Scriptable](https://apps.apple.com/us/app/scriptable/id1405459188?uo=4) from Apple Store
-+ Download the scripts
-+ Open script use Scriptable and click add to **my script button**
+- Install [Scriptable](https://apps.apple.com/us/app/scriptable/id1405459188?uo=4) from Apple Store
+- Download the scripts
+- Open script use Scriptable and click add to **my script button**
 
-<br>
+## 📺Demo to use
 
->  [Howdz](https://howdz.vercel.app), a simliar project for browser start page in PC.
+- [Demo Video](https://www.bilibili.com/video/BV1sL4y1M7BT/)
+
+<iframe src="//player.bilibili.com/player.html?aid=852447362&bvid=BV1sL4y1M7BT&cid=555464357&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="280px" height="592px" style="padding-inline-start: 40px;"></iframe>
+
+---
+
+> [Howdz](https://howdz.vercel.app), a simliar project for browser start page in PC.
