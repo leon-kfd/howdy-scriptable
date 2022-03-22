@@ -25,7 +25,7 @@ Some collection scripts of `Scriptable` on IOS, built by [Leon.D ❤](https://ko
 
 - [Demo Video](https://www.bilibili.com/video/BV1sL4y1M7BT/)
 
-<iframe src="//player.bilibili.com/player.html?aid=852447362&bvid=BV1sL4y1M7BT&cid=555464357&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="280px" height="592px" style="padding-inline-start: 40px;"></iframe>
+<div id="videoFrame"></div>
 
 ---
 
