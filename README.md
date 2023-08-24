@@ -7,13 +7,13 @@ Some collection scripts of `Scriptable` on IOS, built by [Leon.D ❤](https://ko
 ## 🏳️‍🌈List
 
 - [RandomMovieLine](./RandomMovieLine.js) - 随机电影台词
-  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/MovieLines.png" width="280px" loading="lazy" alt="RandomMovieLine"></div>
+  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/MovieLines.png" width="280px" loading="lazy" alt="RandomMovieLine" referrerpolicy="no-referrer"></div>
 - [RandomVerse](./RandomVerse.js) - 随机古诗
-  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/Verse.png" width="280px" loading="lazy" alt="RandomVerse"></div>
+  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/Verse.png" width="280px" loading="lazy" alt="RandomVerse" referrerpolicy="no-referrer"></div>
 - [RandomEnglishSentence](./RandomEnglishSentence.js) - 随机英文名句
-  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/EnglishSentence.png" width="280px" loading="lazy" alt="RandomEnglishSentence"></adiv>
+  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/EnglishSentence.png" width="280px" loading="lazy" alt="RandomEnglishSentence" referrerpolicy="no-referrer"></adiv>
 - [Juejin](./Juejin.js) - 掘金热榜
-  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/Juejin.png" width="280px" loading="lazy" alt="Juejin"></div>
+  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/Juejin.png" width="280px" loading="lazy" alt="Juejin" referrerpolicy="no-referrer"></div>
 
 ## 🔨How to add?
 
