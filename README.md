@@ -13,7 +13,7 @@ Some collection scripts of `Scriptable` on IOS, built by [Leon.D ❤](https://ko
 - [RandomEnglishSentence](./RandomEnglishSentence.js) - 随机英文名句
   <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/EnglishSentence.png" width="280px" loading="lazy" alt="RandomEnglishSentence" referrerpolicy="no-referrer"></adiv>
 - [Juejin](./Juejin.js) - 掘金热榜
-  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/Juejin.png" width="280px" loading="lazy" alt="Juejin" referrerpolicy="no-referrer"></div>
+  <div><img src="https://cdn.kongfandong.cn/img/scriptable-preview/JueJin.png" width="280px" loading="lazy" alt="Juejin" referrerpolicy="no-referrer"></div>
 
 ## 🔨How to add?
 
