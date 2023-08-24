@@ -1,11 +1,13 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts"
-import { marked } from "npm:marked@7";
+// import { marked } from "npm:marked@7";
+import { Marked } from 'https://raw.githubusercontent.com/ubersl0th/markdown/master/mod.ts'
 
 const app = new Application();
 const router = new Router();
 
 const readme = await Deno.readTextFile("./README.md");
-const readmeHtml = marked.parse(readme)
+// const readmeHtml = marked.parse(readme)
+const readmeHtml = Marked.parse(readme).content
 
 
 app.use(async (ctx, next) => {
