@@ -1,27 +1,27 @@
 const isLarge = config.widgetFamily === 'large'
 
 async function getData() {
-    const target = 'https://howdz.deno.dev/movieLines'
-    const { img1, img2, img3, img4, link, name, quotes } = await (new Request(target)).loadJSON()
-    const randomImgArr = [img1, img1, img2, img3, img4].filter(Boolean)
-    const randomImgIdx = ~~(Math.random() * randomImgArr.length)
-    const randomImg = randomImgArr[randomImgIdx]
-    const wallpaperImg = randomImg.replace('original', 'w1280')
-    const img = await (new Request(wallpaperImg)).loadImage()
-    const greyImg = await getGreyImg(img)
-    return { name, link, quotes, img: greyImg }
+	const target = 'https://howdz.deno.dev/movieLines'
+	const { img1, img2, img3, img4, link, name, quotes } = await (new Request(target)).loadJSON()
+	const randomImgArr = [img1, img1, img2, img3, img4].filter(Boolean)
+	const randomImgIdx = ~~(Math.random() * randomImgArr.length)
+	const randomImg = randomImgArr[randomImgIdx]
+	const wallpaperImg = randomImg.replace('original', 'w1280')
+	const img = await (new Request(wallpaperImg)).loadImage()
+	const greyImg = await getGreyImg(img)
+	return { name, link, quotes, img: greyImg }
 }
 
 async function getGreyImg(img) {
-    let ctx = new DrawContext()
-    ctx.size = img.size
-    ctx.drawImageInRect(img, new Rect(0, 0, img.size['width'], img.size['height']))
-    ctx.setFillColor(new Color("#000000", 0.7))
-    ctx.fillRect(new Rect(0, 0, img.size['width'], img.size['height']))
-    let res = await ctx.getImage()
-    return res
+	let ctx = new DrawContext()
+	ctx.size = img.size
+	ctx.drawImageInRect(img, new Rect(0, 0, img.size['width'], img.size['height']))
+	ctx.setFillColor(new Color("#000000", 0.7))
+	ctx.fillRect(new Rect(0, 0, img.size['width'], img.size['height']))
+	let res = await ctx.getImage()
+	return res
 }
-  
+
 const widget = new ListWidget()
 const { name: movieName, link, quotes, img } = await getData()
 widget.backgroundImage = img
@@ -48,8 +48,8 @@ footerText.textColor = Color.white()
 footerText.rightAlignText()
 
 if (config.runsInWidget) {
-    Script.setWidget(widget)
+  Script.setWidget(widget)
 } else {
-    widget.presentMedium()
+  widget.presentMedium()
 }
 Script.complete()
